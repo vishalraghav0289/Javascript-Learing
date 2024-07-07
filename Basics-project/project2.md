@@ -144,3 +144,62 @@ function newGame() {
 
 
    ```
+
+
+
+
+
+
+
+
+
+   # Project 3 :
+
+   ## Soloution code for changing backrgound colour by random color (by assing button funtionality in it)
+ 
+
+
+   ```javascript
+         
+         // first we had to generate random color
+
+const randomcolor = function () {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let intervalid;
+
+// Here this code change background color
+const startChangeingColor = function () {
+  if (!intervalid) {
+    intervalid = setInterval(changeBgColor, 1000);
+    function changeBgColor() {
+      document.body.style.backgroundColor = randomcolor();
+    }
+  }
+};
+//Here this code stop changing color
+const stopChangeingColor = function () {
+  clearInterval(intervalid);
+  intervalid = null;
+};
+
+document.querySelector('#start').addEventListener('click', startChangeingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangeingColor);
+
+
+
+
+
+
+
+   ```
+
+
+  
